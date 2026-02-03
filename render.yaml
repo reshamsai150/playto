@@ -2,11 +2,13 @@ databases:
   - name: playto-db
     databaseName: playto
     user: playto_user
+    plan: free
 
 services:
   - type: web
     name: playto-backend
     env: python
+    plan: free
     buildCommand: |
         cd backend
         pip install -r requirements.txt
@@ -28,6 +30,7 @@ services:
   - type: web
     name: playto-frontend
     env: static
+    plan: free
     buildCommand: |
         cd frontend
         npm install
