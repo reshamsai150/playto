@@ -1,7 +1,16 @@
 import axios from 'axios';
 
+const getBaseURL = () => {
+    let url = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    // Clean trailing slash if present
+    if (url.endsWith('/')) {
+        url = url.slice(0, -1);
+    }
+    return `${url}/api/`;
+};
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api/` : 'http://localhost:8000/api/',
+    baseURL: getBaseURL(),
 });
 
 api.interceptors.request.use((config) => {
@@ -25,6 +34,14 @@ api.interceptors.request.use((config) => {
         // And we need to fetch CSRF token.
     }
     return config;
+}, (error) => {
+    console.error('API Request Error:', error);
+    return Promise.reject(error);
+});
+
+api.interceptors.response.use((response) => response, (error) => {
+    console.error('API Response Error:', error.response?.data || error.message);
+    return Promise.reject(error);
 });
 
 // For MVP speed/correctness with "Default Auth", I'll use Basic Auth or Session.
