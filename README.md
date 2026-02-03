@@ -68,4 +68,5 @@ This project implements a social feed where users can post updates, engage in de
 
 ## Deployment
 
-[Link to Live Deployment](#) *(Replace with actual link if deployed, e.g., on Vercel/Render)*
+- **Live Frontend**: [https://playto-frontend-85wo.onrender.com](https://playto-frontend-85wo.onrender.com)
+- **Live Backend (API)**: [https://playto-qrbo.onrender.com](https://playto-qrbo.onrender.com)
