@@ -1,53 +1,71 @@
-# Playto Engineering Challenge Prototype
+# Playto Engineering Challenge
 
-A community feed prototype with threaded comments, karma system, and rolling 24h leaderboard.
+A full-stack community feed application featuring threaded comments and a real-time karma leaderboard.
 
-## Stack
-- **Backend:** Django 5 + Django REST Framework + SQLite
-- **Frontend:** React (Vite) + Tailwind CSS
+## Project Overview
 
-## Prerequisites
-- Python 3.10+
-- Node.js 18+
+This project implements a social feed where users can post updates, engage in deep discussions via nested threaded comments, and compete on a rolling 24-hour leaderboard based on engagement.
 
-## Setup & Run
+**Key Features:**
+- **Community Feed:** Create posts and view a chronological feed.
+- **Threaded Comments:** Infinite nesting depth for discussions.
+- **Leaderboard:** Top 5 users based on karma earned in the last 24 hours (weighted scoring).
 
-### 1. Backend
-```bash
-cd backend
-python -m venv venv
-# Windows:
-venv\Scripts\activate
-# Install dependencies
-pip install django djangorestframework django-cors-headers
-# Run migrations
-python manage.py migrate
-# Start server
-python manage.py runserver
-```
-Runs on `http://localhost:8000`
+## Tech Stack
 
-### 2. Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Runs on `http://localhost:5173`
+- **Backend:** Python, Django, Django REST Framework (DRF)
+- **Frontend:** React, Tailwind CSS
+- **Database:** SQLite (Default for local setup) / PostgreSQL (Production ready)
 
-## Features
-- **Auth**: Register/Login (Standard Django handling)
-- **Feed**: Post creation and listing
-- **Comments**: Unlimited nested threads (Reddit-style)
-- **Likes**: Atomic likes with karma (Post=+5, Comment=+1)
-- **Leaderboard**: Updates in real-time based on last 24h activity.
+## Local Setup
 
-## API Endpoints
-- `POST /api/auth/register/`
-- `POST /api/auth/login/`
-- `GET/POST /api/posts/`
-- `GET /api/posts/{id}/` (includes comment tree)
-- `POST /api/posts/{id}/comments/`
-- `POST /api/comments/{id}/reply/`
-- `POST /api/likes/`
-- `GET /api/leaderboard/`
+### Backend (Django)
+
+1.  **Navigate to backend:**
+    ```bash
+    cd backend
+    ```
+
+2.  **Create virtual environment & install dependencies:**
+    ```bash
+    python -m venv venv
+    # Windows
+    venv\Scripts\activate
+    # macOS/Linux
+    source venv/bin/activate
+    
+    pip install -r requirements.txt
+    ```
+
+3.  **Run migrations:**
+    ```bash
+    python manage.py migrate
+    ```
+
+4.  **Start server:**
+    ```bash
+    python manage.py runserver
+    ```
+    *Runs on:* `http://localhost:8000`
+
+### Frontend (React)
+
+1.  **Navigate to frontend:**
+    ```bash
+    cd frontend
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Start development server:**
+    ```bash
+    npm run dev
+    ```
+    *Runs on:* `http://localhost:5173` (typically)
+
+## Deployment
+
+[Link to Live Deployment](#) *(Replace with actual link if deployed, e.g., on Vercel/Render)*
