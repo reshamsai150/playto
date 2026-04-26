@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f5f7fa;
+  --color-brand-100: #e4e7eb;
+  --color-brand-200: #cbd2d9;
+  --color-brand-300: #9aa5b1;
+  --color-brand-400: #7b8794;
+  --color-brand-500: #616e7c;
+  --color-brand-600: #52606d;
+  --color-brand-700: #3e4c59;
+  --color-brand-800: #323f4b;
+  --color-brand-900: #1f2933;
+
+  --color-accent-light: #38bdf8;
+  --color-accent: #0ea5e9;
+  --color-accent-dark: #0284c7;
+
+  --font-sans: "Inter", "system-ui", "sans-serif";
+}
+
+@utility brand-500 {
+  color: var(--color-brand-500);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-50 text-brand-900 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-brand-100 p-6 transition-all;
+  }
+  .btn-primary {
+    @apply px-4 py-2 bg-accent text-white rounded-lg font-medium hover:bg-accent-dark transition-colors focus:ring-4 focus:ring-accent-light focus:outline-none disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply px-4 py-2 bg-white text-brand-700 border border-brand-200 rounded-lg font-medium hover:bg-brand-50 transition-colors focus:ring-4 focus:ring-brand-100 focus:outline-none;
+  }
+  .input-field {
+    @apply w-full px-4 py-2 border border-brand-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all;
+  }
+  .table-th {
+    @apply px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider bg-brand-50 border-b border-brand-200;
+    color: var(--color-brand-500);
+  }
+  .table-td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-brand-700 border-b border-brand-100;
+  }
+}
